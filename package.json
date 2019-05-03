@@ -5,6 +5,10 @@
   "repository": "https://github.com/josephriosIO/webdb-challenge.git",
   "author": "josephriosio <blankworldwide@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js"
+  },
   "dependencies": {
     "express": "^4.16.4",
     "helmet": "^3.16.0",
