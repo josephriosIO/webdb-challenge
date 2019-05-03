@@ -23,4 +23,13 @@ server.get("/:id", async (req, res) => {
   }
 });
 
+server.put("/:id", async (req, res) => {
+  try {
+    const updateProject = await projectDb.update(req.body, req.params.id);
+    res.status(200).json(updateProject);
+  } catch (err) {
+    res.status(500).json({ msg: err.message });
+  }
+});
+
 module.exports = server;

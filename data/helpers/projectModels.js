@@ -9,6 +9,17 @@ function get() {
   return db("projects");
 }
 
+function update(project, id) {
+  return db("projects")
+    .where({ id })
+    .update(project)
+    .then(ids => {
+      return get(ids)
+        .where({ id })
+        .first();
+    });
+}
+
 const getById = async id => {
   // TODO: Too many database request
   const getProject = await get()
@@ -31,5 +42,6 @@ const getById = async id => {
 
 module.exports = {
   insert,
-  getById
+  getById,
+  update
 };
