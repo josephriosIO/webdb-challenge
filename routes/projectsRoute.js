@@ -10,6 +10,15 @@ server.post("/", async (req, res) => {
   }
 });
 
+server.get("/", async (req, res) => {
+  try {
+    const getProjects = await projectDb.get();
+    res.json(getProjects);
+  } catch (err) {
+    res.status(500).json({ msg: err.message });
+  }
+});
+
 server.get("/:id", async (req, res) => {
   try {
     const getProject = await projectDb.getById(req.params.id);
